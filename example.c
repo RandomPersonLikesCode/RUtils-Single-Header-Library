@@ -14,8 +14,5 @@ int main() {
   rutils_logging_log("Hello Normal", RUTILS_LOGGING_NORMAL);
   rutils_logging_log("Hello Undefined", 42);
 
-  printf("%s\n", rutils_string_truncate("Hello", 3));
-  printf("%s\n", rutils_string_truncate("World!", 42));
-
   return 0;
 }
