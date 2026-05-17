@@ -7,7 +7,7 @@ that I made for learning to program.
 ## Test
 
 ```sh
-clang -g -o example example.c
+clang -g -std=c99 -pedantic -Wall -Wextra -Werror -o example example.c
 ```
 
 ## Disclaimer
