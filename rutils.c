@@ -1,5 +1,5 @@
 /*
-  RUtils Single Header Library
+  RUtils Single Source Library
 
   Copyright (c) 2026 RandomPerson
   SPDX-License-Identifier: MIT-0
@@ -7,31 +7,27 @@
 
 #include <stdio.h>
 
-#ifndef RUTILS_H
-#define RUTILS_H
-
+/* Variables */
 /* ANSI Colors */
 
-#define RUTILS_COLOR_RED "\x1b[1;31m"
-#define RUTILS_COLOR_YELLOW "\x1b[1;33m"
-#define RUTILS_COLOR_GREEN "\x1b[1;32m"
-#define RUTILS_COLOR_RESET "\x1b[0;0m"
+const char *RUTILS_COLOR_RED = "\x1b[1;31m";
+const char *RUTILS_COLOR_YELLOW = "\x1b[1;33m";
+const char *RUTILS_COLOR_GREEN = "\x1b[1;32m";
+const char *RUTILS_COLOR_RESET = "\x1b[0;0m";
 
+/* Enums */
 /* Log Types */
 
-#define RUTILS_LOGGING_NORMAL 0
-#define RUTILS_LOGGING_WARNING 1
-#define RUTILS_LOGGING_ERROR 2
+enum RUtilsLogtype {
+  RUTILS_LOGGING_NORMAL,
+  RUTILS_LOGGING_WARNING,
+  RUTILS_LOGGING_ERROR
+};
 
-/* Definition */
+/* Functions */
+/* Function To Log Messages To stdout/stderr */
 
-void rutils_logging_log(const char *log_msg, int log_type);
-
-#ifdef RUTILS_IMPLEMENTATION
-
-/* Implementation */
-
-void rutils_logging_log(const char *log_msg, int log_type) {
+void rutils_logging_log(const char *log_msg, enum RUtilsLogtype log_type) {
   switch (log_type) {
     case RUTILS_LOGGING_ERROR:
       fprintf(stderr,
@@ -65,7 +61,3 @@ void rutils_logging_log(const char *log_msg, int log_type) {
               RUTILS_COLOR_RESET);
   }
 }
-
-#endif /* RUTILS_IMPLEMENTATION */
-
-#endif /* RUTILS_H */
